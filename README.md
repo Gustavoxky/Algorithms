@@ -1,55 +1,55 @@
-# Projeto de Algoritmos em C#
+# C# Algorithms Project
 
-Bem-vindo ao projeto de algoritmos em C#! Este repositório contém uma coleção de algoritmos implementados em C# para fins educacionais e de referência. Os algoritmos aqui incluídos abrangem diversas áreas da ciência da computação e podem ser úteis como exemplos e recursos de aprendizado.
+Welcome to the C# algorithms project! This repository contains a collection of algorithms implemented in C# for educational and reference purposes. The included algorithms cover various areas of computer science and can be useful as examples and learning resources.
 
-## Algoritmos Incluídos
+## Included Algorithms
 
-Neste projeto, você encontrará os seguintes algoritmos:
+In this project, you will find the following algorithms:
 
-1. **Ordenação:**
+1. **Sorting:**
     - Bubble Sort
     - Selection Sort
     - Insertion Sort
     - Quick Sort
     - Merge Sort
 
-2. **Pesquisa:**
-    - Busca binária
-    - Busca linear
-    - Busca em árvore binária
+2. **Searching:**
+    - Binary Search
+    - Linear Search
+    - Binary Tree Search
 
-3. **Grafos:**
-    - Algoritmo de Dijkstra
-    - Algoritmo de Bellman-Ford
-    - Algoritmo de Kruskal
+3. **Graphs:**
+    - Dijkstra's Algorithm
+    - Bellman-Ford Algorithm
+    - Kruskal's Algorithm
 
 4. **Strings:**
-    - Algoritmo de busca de substring (exemplo: Knuth-Morris-Pratt)
-    - Algoritmo de ordenação de strings (exemplo: Radix Sort)
+    - Substring Search Algorithm (e.g., Knuth-Morris-Pratt)
+    - String Sorting Algorithm (e.g., Radix Sort)
 
-5. **Estruturas de Dados:**
-    - Listas ligadas
-    - Pilha
-    - Fila
-    - Árvore binária
+5. **Data Structures:**
+    - Linked Lists
+    - Stack
+    - Queue
+    - Binary Tree
     - Hash Table
 
-## Como Usar
+## How to Use
 
-Você pode clonar este repositório em sua máquina local e explorar os algoritmos individualmente. Certifique-se de que você tenha o ambiente de desenvolvimento C# configurado. Cada algoritmo é organizado em seu próprio arquivo ou pasta, tornando a navegação fácil.
+You can clone this repository to your local machine and explore the algorithms individually. Make sure you have the C# development environment set up. Each algorithm is organized in its own file or folder, making navigation easy.
 
-Para compilar e executar qualquer um dos algoritmos, siga as instruções contidas no arquivo README dentro de cada diretório específico.
+To compile and run any of the algorithms, follow the instructions provided in the README file within each specific directory.
 
-## Contribuição
+## Contribution
 
-Se você deseja contribuir com novos algoritmos, melhorias ou correções, fique à vontade para abrir uma solicitação de pull. Certifique-se de seguir as diretrizes de contribuição deste projeto.
+If you wish to contribute new algorithms, improvements, or corrections, feel free to open a pull request. Be sure to follow the contribution guidelines of this project.
 
-## Licença
+## License
 
-Este projeto é licenciado sob a Licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+This project is licensed under the MIT License - please refer to the [LICENSE](LICENSE) file for more details.
 
-## Contato
+## Contact
 
-Para qualquer dúvida, sugestões ou problemas, entre em contato através do email [seu-email@example.com].
+For any questions, suggestions, or issues, please contact us via email at [your-email@example.com].
 
-Aproveite o aprendizado e a exploração dos algoritmos em C#! Obrigado por usar este projeto.
+Enjoy learning and exploring C# algorithms! Thank you for using this project.
