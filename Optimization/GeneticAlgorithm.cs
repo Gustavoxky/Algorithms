@@ -1,65 +1,67 @@
-// using System;
-// using System.Linq;
+using System;
+using System.Linq;
 
-// class GeneticAlgorithm
-// {
-//     private static Random random = new Random();
+namespace Generic;
 
-//     public static double Optimize(int populationSize, int generations)
-//     {
-//         double[] population = InitializePopulation(populationSize);
-//         double bestSolution = population[0];
+class GeneticAlgorithm
+{
+    private static Random random = new Random();
 
-//         for (int generation = 0; generation < generations; generation++)
-//         {
-//             double[] newPopulation = new double[populationSize];
+    public static double Optimize(int populationSize, int generations)
+    {
+        double[] population = InitializePopulation(populationSize);
+        double bestSolution = population[0];
 
-//             for (int i = 0; i < populationSize; i++)
-//             {
-//                 double parent1 = SelectParent(population);
-//                 double parent2 = SelectParent(population);
-//                 double child = Crossover(parent1, parent2);
-//                 child = Mutate(child);
-//                 newPopulation[i] = child;
+        for (int generation = 0; generation < generations; generation++)
+        {
+            double[] newPopulation = new double[populationSize];
 
-//                 if (child < bestSolution)
-//                     bestSolution = child;
-//             }
+            for (int i = 0; i < populationSize; i++)
+            {
+                double parent1 = SelectParent(population);
+                double parent2 = SelectParent(population);
+                double child = Crossover(parent1, parent2);
+                child = Mutate(child);
+                newPopulation[i] = child;
 
-//             population = newPopulation;
-//         }
+                if (child < bestSolution)
+                    bestSolution = child;
+            }
 
-//         return bestSolution;
-//     }
+            population = newPopulation;
+        }
 
-//     private static double[] InitializePopulation(int populationSize)
-//     {
-//         double[] population = new double[populationSize];
-//         for (int i = 0; i < populationSize; i++)
-//         {
-//             population[i] = random.NextDouble() * 10; // Inicialização aleatória
-//         }
-//         return population;
-//     }
+        return bestSolution;
+    }
 
-//     private static double SelectParent(double[] population)
-//     {
-//         // Seleção de pais simples: escolha um indivíduo aleatório da população.
-//         return population[random.Next(population.Length)];
-//     }
+    private static double[] InitializePopulation(int populationSize)
+    {
+        double[] population = new double[populationSize];
+        for (int i = 0; i < populationSize; i++)
+        {
+            population[i] = random.NextDouble() * 10; // Inicialização aleatória
+        }
+        return population;
+    }
 
-//     private static double Crossover(double parent1, double parent2)
-//     {
-//         // Crossover simples: média ponderada dos pais.
-//         return (parent1 + parent2) / 2;
-//     }
+    private static double SelectParent(double[] population)
+    {
+        // Seleção de pais simples: escolha um indivíduo aleatório da população.
+        return population[random.Next(population.Length)];
+    }
 
-//     private static double Mutate(double child)
-//     {
-//         // Mutação simples: adicione um valor aleatório pequeno.
-//         return child + (random.NextDouble() - 0.5);
-//     }
-// }
+    private static double Crossover(double parent1, double parent2)
+    {
+        // Crossover simples: média ponderada dos pais.
+        return (parent1 + parent2) / 2;
+    }
+
+    private static double Mutate(double child)
+    {
+        // Mutação simples: adicione um valor aleatório pequeno.
+        return child + (random.NextDouble() - 0.5);
+    }
+}
 
 // class Program
 // {

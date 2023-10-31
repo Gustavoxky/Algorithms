@@ -1,54 +1,56 @@
-// using System;
-// using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 
-// class Dijkstra
-// {
-//     public static Dictionary<string, int> FindShortestPath(Dictionary<string, Dictionary<string, int>> graph, string startNode)
-//     {
-//         Dictionary<string, int> distances = new Dictionary<string, int>();
-//         Dictionary<string, string> previousNodes = new Dictionary<string, string>();
-//         List<string> unvisitedNodes = new List<string>(graph.Keys);
+namespace Dij;
 
-//         foreach (string node in unvisitedNodes)
-//         {
-//             distances[node] = int.MaxValue;
-//         }
-//         distances[startNode] = 0;
+class Dijkstra
+{
+    public static Dictionary<string, int> FindShortestPath(Dictionary<string, Dictionary<string, int>> graph, string startNode)
+    {
+        Dictionary<string, int> distances = new Dictionary<string, int>();
+        Dictionary<string, string> previousNodes = new Dictionary<string, string>();
+        List<string> unvisitedNodes = new List<string>(graph.Keys);
 
-//         while (unvisitedNodes.Count > 0)
-//         {
-//             string currentNode = FindSmallestDistanceNode(distances, unvisitedNodes);
-//             unvisitedNodes.Remove(currentNode);
+        foreach (string node in unvisitedNodes)
+        {
+            distances[node] = int.MaxValue;
+        }
+        distances[startNode] = 0;
 
-//             foreach (KeyValuePair<string, int> neighbor in graph[currentNode])
-//             {
-//                 int distance = distances[currentNode] + neighbor.Value;
-//                 if (distance < distances[neighbor.Key])
-//                 {
-//                     distances[neighbor.Key] = distance;
-//                     previousNodes[neighbor.Key] = currentNode;
-//                 }
-//             }
-//         }
+        while (unvisitedNodes.Count > 0)
+        {
+            string currentNode = FindSmallestDistanceNode(distances, unvisitedNodes);
+            unvisitedNodes.Remove(currentNode);
 
-//         return distances;
-//     }
+            foreach (KeyValuePair<string, int> neighbor in graph[currentNode])
+            {
+                int distance = distances[currentNode] + neighbor.Value;
+                if (distance < distances[neighbor.Key])
+                {
+                    distances[neighbor.Key] = distance;
+                    previousNodes[neighbor.Key] = currentNode;
+                }
+            }
+        }
 
-//     private static string FindSmallestDistanceNode(Dictionary<string, int> distances, List<string> unvisitedNodes)
-//     {
-//         int smallestDistance = int.MaxValue;
-//         string smallestDistanceNode = null;
-//         foreach (string node in unvisitedNodes)
-//         {
-//             if (distances[node] < smallestDistance)
-//             {
-//                 smallestDistance = distances[node];
-//                 smallestDistanceNode = node;
-//             }
-//         }
-//         return smallestDistanceNode;
-//     }
-// }
+        return distances;
+    }
+
+    private static string FindSmallestDistanceNode(Dictionary<string, int> distances, List<string> unvisitedNodes)
+    {
+        int smallestDistance = int.MaxValue;
+        string smallestDistanceNode = null;
+        foreach (string node in unvisitedNodes)
+        {
+            if (distances[node] < smallestDistance)
+            {
+                smallestDistance = distances[node];
+                smallestDistanceNode = node;
+            }
+        }
+        return smallestDistanceNode;
+    }
+}
 
 // class Program
 // {

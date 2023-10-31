@@ -1,34 +1,36 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-// class LeastConnectionsBalancer
-// {
-//     private Dictionary<string, int> resourceConnections;
+namespace Least;
 
-//     public LeastConnectionsBalancer(List<string> availableResources)
-//     {
-//         resourceConnections = availableResources.ToDictionary(resource => resource, resource => 0);
-//     }
+class LeastConnectionsBalancer
+{
+    private Dictionary<string, int> resourceConnections;
 
-//     public string AssignTask()
-//     {
-//         if (resourceConnections.Count == 0)
-//             return null;
+    public LeastConnectionsBalancer(List<string> availableResources)
+    {
+        resourceConnections = availableResources.ToDictionary(resource => resource, resource => 0);
+    }
 
-//         string selectedResource = resourceConnections.OrderBy(pair => pair.Value).First().Key;
-//         resourceConnections[selectedResource]++; // Incrementa as conexões ativas
-//         return selectedResource;
-//     }
+    public string AssignTask()
+    {
+        if (resourceConnections.Count == 0)
+            return null;
 
-//     public void ReleaseTask(string resource)
-//     {
-//         if (resourceConnections.ContainsKey(resource) && resourceConnections[resource] > 0)
-//             resourceConnections[resource]--; // Libera uma conexão
-//     }
-// }
+        string selectedResource = resourceConnections.OrderBy(pair => pair.Value).First().Key;
+        resourceConnections[selectedResource]++; // Incrementa as conexões ativas
+        return selectedResource;
+    }
 
-// // Exemplo de uso
+    public void ReleaseTask(string resource)
+    {
+        if (resourceConnections.ContainsKey(resource) && resourceConnections[resource] > 0)
+            resourceConnections[resource]--; // Libera uma conexão
+    }
+}
+
+// Exemplo de uso
 // class Program
 // {
 //     static void Main()

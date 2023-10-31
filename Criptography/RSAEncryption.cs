@@ -1,32 +1,34 @@
-// using System;
-// using System.Security.Cryptography;
-// using System.Text;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
-// class RSAEncryption
-// {
-//     public static string Encrypt(string plainText, RSAParameters publicKey)
-//     {
-//         using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
-//         {
-//             rsa.ImportParameters(publicKey);
+namespace RSAEncrypt;
 
-//             byte[] plainBytes = Encoding.UTF8.GetBytes(plainText);
-//             byte[] encryptedBytes = rsa.Encrypt(plainBytes, true);
+class RSAEncryption
+{
+    public static string Encrypt(string plainText, RSAParameters publicKey)
+    {
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.ImportParameters(publicKey);
 
-//             return Convert.ToBase64String(encryptedBytes);
-//         }
-//     }
+            byte[] plainBytes = Encoding.UTF8.GetBytes(plainText);
+            byte[] encryptedBytes = rsa.Encrypt(plainBytes, true);
 
-//     public static string Decrypt(string cipherText, RSAParameters privateKey)
-//     {
-//         using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
-//         {
-//             rsa.ImportParameters(privateKey);
+            return Convert.ToBase64String(encryptedBytes);
+        }
+    }
 
-//             byte[] cipherBytes = Convert.FromBase64String(cipherText);
-//             byte[] decryptedBytes = rsa.Decrypt(cipherBytes, true);
+    public static string Decrypt(string cipherText, RSAParameters privateKey)
+    {
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            rsa.ImportParameters(privateKey);
 
-//             return Encoding.UTF8.GetString(decryptedBytes);
-//         }
-//     }
-// }
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            byte[] decryptedBytes = rsa.Decrypt(cipherBytes, true);
+
+            return Encoding.UTF8.GetString(decryptedBytes);
+        }
+    }
+}

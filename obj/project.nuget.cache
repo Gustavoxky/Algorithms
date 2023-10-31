@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZbHvnMRioz11OOL3dkOiPFSWJ5Exs4mLcGmGOdi0CbhW5B4QD4n0OgIn9OxYivNx4vCkCxOs4rhjfoz5u1c9fg==",
+  "dgSpecHash": "dNYzkqYUVHO//IcOUtpVNziVM5KWBkEKdtXBpVfmHwVUPOF+VDzgYLowjRbz5vuzK0TkVsUNNtYriTnGxAxK/Q==",
   "success": true,
   "projectFilePath": "/Users/macbook/algorithms/algorithms.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/macbook/.nuget/packages/accord/3.8.0/accord.3.8.0.nupkg.sha512"
+  ],
   "logs": []
 }

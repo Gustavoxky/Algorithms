@@ -1,29 +1,31 @@
-// using System;
-// using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 
-// class RoundRobinBalancer
-// {
-//     private List<string> resources;
-//     private int currentIndex;
+namespace Round;
 
-//     public RoundRobinBalancer(List<string> availableResources)
-//     {
-//         resources = availableResources;
-//         currentIndex = 0;
-//     }
+class RoundRobinBalancer
+{
+    private List<string> resources;
+    private int currentIndex;
 
-//     public string AssignTask()
-//     {
-//         if (resources.Count == 0)
-//             return null;
+    public RoundRobinBalancer(List<string> availableResources)
+    {
+        resources = availableResources;
+        currentIndex = 0;
+    }
 
-//         string selectedResource = resources[currentIndex];
-//         currentIndex = (currentIndex + 1) % resources.Count; // Avança para o próximo recurso
-//         return selectedResource;
-//     }
-// }
+    public string AssignTask()
+    {
+        if (resources.Count == 0)
+            return null;
 
-// // Exemplo de uso
+        string selectedResource = resources[currentIndex];
+        currentIndex = (currentIndex + 1) % resources.Count; // Avança para o próximo recurso
+        return selectedResource;
+    }
+}
+
+// Exemplo de uso
 // class Program
 // {
 //     static void Main()

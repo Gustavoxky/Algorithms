@@ -1,63 +1,174 @@
 ﻿using System;
 using Huff;
 using LZW;
-using Encrypt; // Certifique-se de adicionar o namespace para a classe AESEncryption
+using Encrypt; 
+using RSAEncrypt; 
+using System.Security.Cryptography;
+using SHAHash;
+using Star;
+using Bell;
+using Dij;
+using Least;
+using Round;
+using Generic;
 
 class Program
 {
     static void Main()
     {
-        int[] arrHeapsort = { 12, 11, 13, 5, 6, 7 }; // Crie um array de inteiros para ordenar com Heapsort
-        int[] arrMergesort = { 12, 11, 13, 5, 6, 7 }; // Crie um array de inteiros para ordenar com Mergesort
-        int[] arrQuicksort = { 12, 11, 13, 5, 6, 7 }; // Crie um array de inteiros para ordenar com Quicksort
+        int[] arrHeapsort = { 12, 11, 13, 5, 6, 7 }; // Create an integer array to sort with Heapsort
+        int[] arrMergesort = { 12, 11, 13, 5, 6, 7 }; // Create an integer array to sort with Mergesort
+        int[] arrQuicksort = { 12, 11, 13, 5, 6, 7 }; // Create an integer array to sort with Quicksort
 
-        Console.WriteLine("Array não ordenado (Heapsort):");
+        Console.WriteLine("Array not sorted (Heapsort):");
         PrintArray(arrHeapsort);
 
-        SortA.Heapsort.Sort(arrHeapsort); // Chame o método Sort da classe Heapsort para ordenar o array
+        SortA.Heapsort.Sort(arrHeapsort); // Call the Sort method from the Heapsort class to sort the array
 
-        Console.WriteLine("Array ordenado (Heapsort):");
+        Console.WriteLine("Array sorted (Heapsort):");
         PrintArray(arrHeapsort);
 
         Console.WriteLine();
 
-        Console.WriteLine("Array não ordenado (Mergesort):");
+        Console.WriteLine("Array not sorted (Mergesort):");
         PrintArray(arrMergesort);
 
-        SortB.Mergesort.Sort(arrMergesort); // Chame o método Sort da classe Mergesort para ordenar o array
+        SortB.Mergesort.Sort(arrMergesort); // Call the Sort method from the Mergesort class to sort the array
 
-        Console.WriteLine("Array ordenado (Mergesort):");
+        Console.WriteLine("Array sorted (Mergesort):");
         PrintArray(arrMergesort);
 
         Console.WriteLine();
 
-        Console.WriteLine("Array não ordenado (Quicksort):");
+        Console.WriteLine("Array not sorted (Quicksort):");
         PrintArray(arrQuicksort);
 
-        SortC.Quicksort.Sort(arrQuicksort); // Chame o método Sort da classe Quicksort para ordenar o array
+        SortC.Quicksort.Sort(arrQuicksort); // Call the Sort method from the Quicksort class to sort the array
 
-        Console.WriteLine("Array ordenado (Quicksort):");
+        Console.WriteLine("Array sorted (Quicksort):");
         PrintArray(arrQuicksort);
 
-        // Agora, vamos comprimir uma string usando HuffmanCompression
+        // Now, let's compress a string using HuffmanCompression
         string inputString = "abracadabra";
-        Console.WriteLine("\nString original: " + inputString);
+        Console.WriteLine("\nOriginal string: " + inputString);
 
         string compressedStringHuffman = HuffmanCompression.Compress(inputString);
-        Console.WriteLine("String comprimida (Huffman): " + compressedStringHuffman);
+        Console.WriteLine("Compressed string (Huffman): " + compressedStringHuffman);
 
-        // Agora, vamos comprimir a mesma string usando LZWCompression
+        // Now, let's compress the same string using LZWCompression
         List<int> compressedDataLZW = LZWCompression.Compress(inputString);
-        Console.WriteLine("String comprimida (LZW): " + string.Join(" ", compressedDataLZW));
+        Console.WriteLine("Compressed string (LZW): " + string.Join(" ", compressedDataLZW));
 
-        // Agora, vamos criptografar a string usando AESEncryption
-        string encryptionKey = "MySecretKey";
-        string encryptedString = AESEncryption.Encrypt(inputString, encryptionKey);
-        Console.WriteLine("String criptografada: " + encryptedString);
+       { 
+            string encryptionKey = "MySecretKey";
+            string encryptedString = AESEncryption.Encrypt(inputString, encryptionKey);
+            Console.WriteLine("String criptografada: " + encryptedString);
 
-        // Agora, vamos descriptografar a string criptografada
-        string decryptedString = AESEncryption.Decrypt(encryptedString, encryptionKey);
-        Console.WriteLine("String descriptografada: " + decryptedString);
+            // Agora, vamos descriptografar a string criptografada
+            string decryptedString = AESEncryption.Decrypt(encryptedString, encryptionKey);
+            Console.WriteLine("String descriptografada: " + decryptedString);
+        }
+
+        // Now, let's encrypt the string using RSAEncryption
+        using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+        {
+            RSAParameters publicKey = rsa.ExportParameters(false);
+            RSAParameters privateKey = rsa.ExportParameters(true);
+
+            // Now, let's encrypt the string using RSAEncryption
+            string encryptedString = RSAEncryption.Encrypt(inputString, publicKey);
+            Console.WriteLine("Encrypted string: " + encryptedString);
+
+            // Now, let's decrypt the encrypted string
+            string decryptedString = RSAEncryption.Decrypt(encryptedString, privateKey);
+            Console.WriteLine("Decrypted string: " + decryptedString);
+        }
+        {
+            // Exemplo de cálculo do hash SHA-256
+            string inputStringSHA256 = "Hello, world!";
+            string hashSHA256 = SHAHashing.ComputeSHA256Hash(inputStringSHA256);
+            Console.WriteLine("SHA-256 Hash: " + hashSHA256);
+
+            // Exemplo de cálculo do hash SHA-512
+            string inputStringSHA512 = "Hello, world!";
+            string hashSHA512 = SHAHashing.ComputeSHA512Hash(inputStringSHA512);
+            Console.WriteLine("SHA-512 Hash: " + hashSHA512);
+        }
+        {
+            Dictionary<string, Dictionary<string, int>> graph = new Dictionary<string, Dictionary<string, int>>
+            {
+                { "A", new Dictionary<string, int> { { "B", 2 }, { "C", 4 } } },
+                { "B", new Dictionary<string, int> { { "C", 1 }, { "D", 7 } } },
+                { "C", new Dictionary<string, int> { { "D", 3 } } },
+                { "D", new Dictionary<string, int>() }
+            };
+
+            List<string> shortestPath = AStar.FindShortestPath(graph, "A", "D");
+
+            Console.WriteLine("Shortest path from A to D: (AStar) " + string.Join(" -> ", shortestPath));
+        }
+        {
+        Dictionary<string, List<(string, int)>> graph = new Dictionary<string, List<(string, int)>>
+            {
+                { "A", new List<(string, int)> { ("B", 2), ("C", 4) } },
+                { "B", new List<(string, int)> { ("C", 1), ("D", 7) } },
+                { "C", new List<(string, int)> { ("D", 3) } },
+                { "D", new List<(string, int)>() }
+            };
+
+        Dictionary<string, int> shortestDistances = BellmanFord.FindShortestPath(graph, "A");
+
+        foreach (KeyValuePair<string, int> entry in shortestDistances)
+            {
+                Console.WriteLine($"Shortest distance from A to {entry.Key}: {entry.Value} (Bellman)");
+            }
+        }
+        {
+            Dictionary<string, Dictionary<string, int>> graph = new Dictionary<string, Dictionary<string, int>>
+                {
+                    { "A", new Dictionary<string, int> { { "B", 2 }, { "C", 4 } } },
+                    { "B", new Dictionary<string, int> { { "C", 1 }, { "D", 7 } } },
+                    { "C", new Dictionary<string, int> { { "D", 3 } } },
+                    { "D", new Dictionary<string, int>() }
+                };
+
+            Dictionary<string, int> shortestDistances = Dijkstra.FindShortestPath(graph, "A");
+
+            foreach (KeyValuePair<string, int> entry in shortestDistances)
+                {
+                    Console.WriteLine($"Shortest distance from A to {entry.Key}: {entry.Value} (Dijkstra)");
+                }
+        }
+        {
+            List<string> availableResources = new List<string> { "ResourceA", "ResourceB", "ResourceC" };
+            LeastConnectionsBalancer balancer = new LeastConnectionsBalancer(availableResources);
+
+            for (int i = 0; i < 10; i++)
+                {
+                    string assignedResource = balancer.AssignTask();
+                    Console.WriteLine($"Task {i + 1} assigned to {assignedResource}");
+                }
+
+            // Simulando a liberação de conexões após o término das tarefas
+            balancer.ReleaseTask("ResourceA");
+            balancer.ReleaseTask("ResourceC");
+        }
+        {
+            List<string> availableResources = new List<string> { "ResourceA", "ResourceB", "ResourceC" };
+            RoundRobinBalancer balancer = new RoundRobinBalancer(availableResources);
+
+            for (int i = 0; i < 10; i++)
+                {
+                    string assignedResource = balancer.AssignTask();
+                    Console.WriteLine($"Task {i + 1} assigned to {assignedResource}");
+                }
+        }
+        {
+            int populationSize = 50;
+            int generations = 100;
+            double result = GeneticAlgorithm.Optimize(populationSize, generations);
+            Console.WriteLine($"Melhor solução encontrada: {result}");
+        }
     }
 
     static void PrintArray(int[] arr)

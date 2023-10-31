@@ -1,39 +1,40 @@
-// using System;
-// using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+namespace Bell;
 
-// class BellmanFord
-// {
-//     public static Dictionary<string, int> FindShortestPath(Dictionary<string, List<(string, int)>> graph, string startNode)
-//     {
-//         Dictionary<string, int> distances = new Dictionary<string, int>();
-//         Dictionary<string, string> previousNodes = new Dictionary<string, string>();
+class BellmanFord
+{
+    public static Dictionary<string, int> FindShortestPath(Dictionary<string, List<(string, int)>> graph, string startNode)
+    {
+        Dictionary<string, int> distances = new Dictionary<string, int>();
+        Dictionary<string, string> previousNodes = new Dictionary<string, string>();
 
-//         foreach (string node in graph.Keys)
-//         {
-//             distances[node] = int.MaxValue;
-//         }
-//         distances[startNode] = 0;
+        foreach (string node in graph.Keys)
+        {
+            distances[node] = int.MaxValue;
+        }
+        distances[startNode] = 0;
 
-//         for (int i = 0; i < graph.Count - 1; i++)
-//         {
-//             foreach (string node in graph.Keys)
-//             {
-//                 foreach ((string, int) edge in graph[node])
-//                 {
-//                     string neighbor = edge.Item1;
-//                     int weight = edge.Item2;
-//                     if (distances[node] != int.MaxValue && distances[node] + weight < distances[neighbor])
-//                     {
-//                         distances[neighbor] = distances[node] + weight;
-//                         previousNodes[neighbor] = node;
-//                     }
-//                 }
-//             }
-//         }
+        for (int i = 0; i < graph.Count - 1; i++)
+        {
+            foreach (string node in graph.Keys)
+            {
+                foreach ((string, int) edge in graph[node])
+                {
+                    string neighbor = edge.Item1;
+                    int weight = edge.Item2;
+                    if (distances[node] != int.MaxValue && distances[node] + weight < distances[neighbor])
+                    {
+                        distances[neighbor] = distances[node] + weight;
+                        previousNodes[neighbor] = node;
+                    }
+                }
+            }
+        }
 
-//         return distances;
-//     }
-// }
+        return distances;
+    }
+}
 
 // class Program
 // {

@@ -13,3 +13,6 @@
 /Users/macbook/algorithms/obj/Debug/net7.0/algorithms.pdb
 /Users/macbook/algorithms/obj/Debug/net7.0/algorithms.genruntimeconfig.cache
 /Users/macbook/algorithms/obj/Debug/net7.0/ref/algorithms.dll
+/Users/macbook/algorithms/bin/Debug/net7.0/Accord.dll.config
+/Users/macbook/algorithms/bin/Debug/net7.0/Accord.dll
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.csproj.CopyComplete
