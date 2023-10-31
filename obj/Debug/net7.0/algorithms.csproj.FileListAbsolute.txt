@@ -1,0 +1,15 @@
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.csproj.AssemblyReference.cache
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.AssemblyInfoInputs.cache
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.AssemblyInfo.cs
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.csproj.CoreCompileInputs.cache
+/Users/macbook/algorithms/bin/Debug/net7.0/algorithms
+/Users/macbook/algorithms/bin/Debug/net7.0/algorithms.deps.json
+/Users/macbook/algorithms/bin/Debug/net7.0/algorithms.runtimeconfig.json
+/Users/macbook/algorithms/bin/Debug/net7.0/algorithms.dll
+/Users/macbook/algorithms/bin/Debug/net7.0/algorithms.pdb
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.dll
+/Users/macbook/algorithms/obj/Debug/net7.0/refint/algorithms.dll
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.pdb
+/Users/macbook/algorithms/obj/Debug/net7.0/algorithms.genruntimeconfig.cache
+/Users/macbook/algorithms/obj/Debug/net7.0/ref/algorithms.dll
