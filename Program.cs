@@ -11,6 +11,7 @@ using Dij;
 using Least;
 using Round;
 using Generic;
+using Tree;
 
 class Program
 {
@@ -168,6 +169,32 @@ class Program
             int generations = 100;
             double result = GeneticAlgorithm.Optimize(populationSize, generations);
             Console.WriteLine($"Melhor solução encontrada: {result}");
+        }
+        {
+            // Crie uma instância da classe BinaryTree
+            BinaryTree tree = new BinaryTree();
+
+            // Adicione nós à árvore
+            tree.Root = new TreeNode(10);
+            tree.Root.Left = new TreeNode(5);
+            tree.Root.Right = new TreeNode(15);
+            tree.Root.Left.Left = new TreeNode(3);
+            tree.Root.Left.Right = new TreeNode(7);
+            tree.Root.Right.Left = new TreeNode(12);
+            tree.Root.Right.Right = new TreeNode(18);
+
+            // Chame o método Search para procurar um valor na árvore
+            int target = 7;
+            TreeNode result = tree.Search(target);
+
+            if (result != null)
+            {
+                Console.WriteLine($"Valor {target} encontrado na árvore.");
+            }
+            else
+            {
+                Console.WriteLine($"Valor {target} não encontrado na árvore.");
+            }
         }
     }
 

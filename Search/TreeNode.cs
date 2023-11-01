@@ -1,36 +1,38 @@
-// using System;
+using System;
 
-// class TreeNode
-// {
-//     public int Value;
-//     public TreeNode Left;
-//     public TreeNode Right;
+namespace Tree;
 
-//     public TreeNode(int value)
-//     {
-//         Value = value;
-//         Left = null;
-//         Right = null;
-//     }
-// }
+class TreeNode
+{
+    public int Value;
+    public TreeNode Left;
+    public TreeNode Right;
 
-// class BinaryTree
-// {
-//     public TreeNode Root;
+    public TreeNode(int value)
+    {
+        Value = value;
+        Left = null;
+        Right = null;
+    }
+}
 
-//     public TreeNode Search(int target)
-//     {
-//         return SearchRecursively(Root, target);
-//     }
+class BinaryTree
+{
+    public TreeNode Root;
 
-//     private TreeNode SearchRecursively(TreeNode node, int target)
-//     {
-//         if (node == null || node.Value == target)
-//             return node;
+    public TreeNode Search(int target)
+    {
+        return SearchRecursively(Root, target);
+    }
 
-//         if (target < node.Value)
-//             return SearchRecursively(node.Left, target);
+    private TreeNode SearchRecursively(TreeNode node, int target)
+    {
+        if (node == null || node.Value == target)
+            return node;
 
-//         return SearchRecursively(node.Right, target);
-//     }
-// }
+        if (target < node.Value)
+            return SearchRecursively(node.Left, target);
+
+        return SearchRecursively(node.Right, target);
+    }
+}
